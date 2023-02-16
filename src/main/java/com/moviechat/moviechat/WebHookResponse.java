@@ -12,14 +12,29 @@ public class WebHookResponse {
 class Message {
     String platform;
     SimpleResponses simpleResponses;
+    CarouselSelect carouselSelect;
 }
 @Data
 class SimpleResponses {
     List<SimpleResponse> simpleResponses;
 }
-
 @Data
 class SimpleResponse {
     String textToSpeech;
 }
 
+@Data
+class CarouselSelect {
+    List<Item> items;
+}
+
+@Data
+class Item {
+    String title;
+    SelectItemInfo selectItemInfo;
+}
+
+@Data
+class SelectItemInfo {
+    String key;
+}
