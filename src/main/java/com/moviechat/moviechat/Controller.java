@@ -5,6 +5,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 public class Controller {
     @GetMapping("/hello")
@@ -13,8 +15,18 @@ public class Controller {
     }
 
     @PostMapping("/chat")
-    String Chat(@RequestBody Object res) {
-        return res.toString();
+    WebHookResponse Chat(@RequestBody Object res) {
+        return new WebHookResponse()
+                .setFulfillmentMessages(List.of(
+                        new Message()
+                                .setPlatform("ACTIONS_ON_GOOGLE")
+                                .setSimpleResponses(
+                                        new SimpleResponses()
+                                                .setSimpleResponses(
+                                                        List.of(
+                                                                new SimpleResponse().setTextToSpeech("Réponse")
+                                                        )))
+                ));
     }
 
 }
