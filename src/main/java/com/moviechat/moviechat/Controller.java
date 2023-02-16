@@ -15,7 +15,7 @@ public class Controller {
     }
 
     @PostMapping("/chat")
-    WebHookResponse Chat(@RequestBody Object res) {
+    WebHookResponse Chat(@RequestBody WebHookRequest response) {
         return new WebHookResponse()
                 .setFulfillmentMessages(List.of(
                         new Message()
@@ -24,7 +24,9 @@ public class Controller {
                                         new SimpleResponses()
                                                 .setSimpleResponses(
                                                         List.of(
-                                                                new SimpleResponse().setTextToSpeech("Réponse")
+                                                                new SimpleResponse().setTextToSpeech(
+                                                                        response.queryResult.action + " " + response.queryResult.parameters.toString()
+                                                                )
                                                         )))
                 ));
     }
