@@ -32,6 +32,7 @@ class CarouselSelect {
 class Item {
     String title;
     SelectItemInfo info;
+    String description;
 }
 
 @Data

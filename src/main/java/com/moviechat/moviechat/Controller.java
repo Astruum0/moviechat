@@ -36,6 +36,7 @@ public class Controller {
                 response.getFulfillmentMessages().get(1).getCarouselSelect().getItems().add(
                                 new Item()
                                         .setTitle(capitalizedFilmType)
+                                        .setDescription(capitalizedFilmType)
                                         .setInfo(new SelectItemInfo().setKey(filmTypes.get(i))));
             }
         } else {
