@@ -12,7 +12,9 @@ public class WebHookResponse {
 class Message {
     String platform;
     SimpleResponses simpleResponses;
+    Suggestions suggestions;
     CarouselSelect carouselSelect;
+
 }
 @Data
 class SimpleResponses {
@@ -21,6 +23,15 @@ class SimpleResponses {
 @Data
 class SimpleResponse {
     String textToSpeech;
+}
+
+@Data
+class Suggestions {
+    List<Suggestion> suggestions;
+}
+@Data
+class Suggestion {
+    String title;
 }
 
 @Data
