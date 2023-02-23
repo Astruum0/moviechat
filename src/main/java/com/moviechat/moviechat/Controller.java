@@ -57,7 +57,7 @@ public class Controller {
 
                 response.setFulfillmentMessages(List.of(
                         new Message().setPlatform("ACTIONS_ON_GOOGLE").setSimpleResponses(new SimpleResponses().setSimpleResponses(List.of(
-                            new SimpleResponse().setTextToSpeech(String.format("Voici les films du genre %s:%d qui pourraient vous intéresser", type.name, type.id))))),
+                            new SimpleResponse().setTextToSpeech(String.format("Voici les films du genre %s qui pourraient vous intéresser", type.name, type.id))))),
                         new Message().setPlatform("ACTIONS_ON_GOOGLE").setCarouselSelect(new CarouselSelect().setItems(new ArrayList<Item>()))));
 
                 for (int i = 0; i < movieResponse.results.size(); i++) {
@@ -67,7 +67,7 @@ public class Controller {
                                     .setTitle(currentFilm.title)
                                     .setDescription(currentFilm.overview)
                                     .setInfo(new SelectItemInfo().setKey(Integer.toString(currentFilm.id)))
-                                    .setImage(new Image().setImageUri(currentFilm.poster_path).setAccessibilityText("Poster"))
+                                    .setImage(new Image().setImageUri(String.format("https://image.tmdb.org/t/p/original%s", currentFilm.poster_path)).setAccessibilityText("Poster"))
                     );
                 }
 
