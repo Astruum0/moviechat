@@ -45,7 +45,7 @@ public class Controller {
             FilmType type = FilmType.all.stream().filter(t -> currentType.equals(t.getName())).findFirst().orElse(null);
 
             try {
-                URL url = new URL("https://api.themoviedb.org/3/discover/movie?api_key=55148ab3bb6eb902c599051fe1fecacc&with_genres=28&language=fr-FR");
+                URL url = new URL(String.format("https://api.themoviedb.org/3/discover/movie?api_key=55148ab3bb6eb902c599051fe1fecacc&with_genres=%d&language=fr-FR", type.id));
                 HttpURLConnection connection = (HttpURLConnection) url.openConnection();
                 connection.setRequestProperty("accept", "application/json");
                 InputStream responseStream = connection.getInputStream();
