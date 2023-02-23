@@ -44,9 +44,16 @@ class Item {
     String title;
     SelectItemInfo info;
     String description;
+    Image image;
 }
 
 @Data
 class SelectItemInfo {
     String key;
+}
+
+@Data
+class Image {
+    String imageUri;
+    String accessibilityText;
 }
